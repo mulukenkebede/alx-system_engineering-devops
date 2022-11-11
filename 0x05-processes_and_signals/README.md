@@ -25,3 +25,14 @@ General
  The first line of all your Bash scripts should be exactly #!/usr/bin/env bash
  The second line of all your Bash scripts should be a comment explaining what is the script doing	
 
+Tasks
+0. What is my PID
+	mandatory
+	Write a Bash script that displays its own PID.
+
+1. List your processes
+	mandatory
+	Write a Bash script that displays a list of currently running processes
+2. Show your Bash PID
+	mandatory
+	Using your previous exercise command, write a Bash script that displays lines containing the bash word, thus allowing you to easily get the PID of your Bash 	process.

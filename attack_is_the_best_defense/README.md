@@ -1,4 +1,4 @@
-#Holberton School - attack_is_the_best_defense Intro to offensive security
+ attack_is_the_best_defense Intro to offensive security
 
 New commands / functions used:
 tcpdump, hydra, telnet

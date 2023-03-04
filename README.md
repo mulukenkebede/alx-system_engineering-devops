@@ -1,23 +1,18 @@
-Command line for the win
+<img src=./image.png width=50%>
 
-Background Context
-	CMD CHALLENGE is a pretty cool game challenging you on Bash skills. Everything is done via the command l	ine and the questions are becoming increasingly complicated. It’s a good training to improve your comman	d line skills!
+# BooktifuL requests failure report
+Last week, it was reported that the BooktifuL platform was returning 500 Error on all requests made on the platform routes, all the services were down.  90% of the users were affected. The root cause was the failure of our master server web-01.
 
-Requirements
-General
-	A README.md file, at the root of the folder of the project, is mandatory
-	This project will be manually reviewed.
-	As each task is completed, the name of that task will turn green
-	Create a screenshot, showing that you completed the required levels
-	Push this screenshot with the right name to GitHub, in either the PNG or JPEG formatt
+## Timeline
+The error was realized on Saturday 26th February 1200 hours (East Africa Time) when our Site Reliability Engineer, Mr Elie saw the master server lagging in speed. Our engineers on call disconnected the master server web-01 for further system analysis and channelled all requests to client server web-02. They soled problem by Sunday 27th Febraury 2200 hours (East Africa Time).
 
-Tasks
-	task0. First 九 
-	#advanced
-		complete the first 9 tasks
-	tasks1. Reach חי completed tasks
-	#advanced
-		Complete the 9 next tasks, getting to 18 total.
-	2. Reach the perfect cube, 27
-	#advanced
-		Complete the 9 next tasks, getting to 27 total.
+## Root cause and resolution
+The BooktifuL platform is served by 2 ubuntu cloud servers. The master server web-01 was connected to serve all requests, and it stopped functioning due to memory outage as a results of so many requests because during a previous test, the client server web-02 was disconnected temporarily for testing and was not connected to the load balancer afterwards. 
+
+
+The issue was fixed when the master server was temporarily disconnected for memory clean-up then connected back to the loadbalancer and round-robin algorithm was configured so that both the master and client servers can handle equal amount of requests.
+
+## Measures against such problem in future
+- Choose the best loadbalancing algorithm for your programs
+- Always keep an eye on your servers to ensure they are running properly
+- Have extra back-up servers to prevent your program fro completely going offline during an issue
